@@ -1,0 +1,32 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "decision-journal"
+version = "0.1.0"
+description = "An AI decision journal that challenges your reasoning and scores how calibrated your gut is."
+readme = "README.md"
+license = "MIT"
+authors = [{ name = "Venkata Sai Renusree Bandaru" }]
+requires-python = ">=3.13"
+dependencies = [
+    "langgraph>=0.6",
+    "langchain-anthropic>=0.3",
+    "pydantic>=2.14.1",
+]
+
+[project.scripts]
+decision-journal = "decision_journal.cli:main"
+
+[dependency-groups]
+dev = [
+    "pytest>=8",
+    "ruff>=0.6",
+]
+
+[tool.ruff]
+line-length = 100
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
