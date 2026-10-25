@@ -31,7 +31,7 @@ class Decision(BaseModel):
     """A single journal entry: the choice made and the prediction behind it."""
 
     id: UUID = Field(default_factory=uuid4)
-    title: str
+    title: str = Field(min_length=1)
     context: str
     options: list[str] = Field(default_factory=list)
     choice: str
